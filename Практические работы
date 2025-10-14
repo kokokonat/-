@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, ""); 
+	int a = 10;
+	cout << a << endl;
+	int s = 12;
+	cout << s << endl;
+	int d = 15;
+	cout << d << endl;
+	int f = 34;
+	cout << f << endl;
+	int g = 17;
+	cout << g << endl;
+
+	short h = 56;
+	cout << h << endl;
+	short j = 47;
+	cout << j << endl;
+	short k = 16;
+	cout << k << endl;
+	short l = 74;
+	cout << l << endl;
+	short q = 18;
+	cout << q << endl;
+
+	float w = 2.3;
+	cout << w << endl;
+	float e = 2.5;
+	cout << e << endl;
+	float r = 2.4;
+	cout << r << endl;
+	float t = 2.6;
+	cout << t << endl;
+	float y = 2.7;
+	cout << y << endl;
+
+	double u = 3.17;
+	cout << u << endl;
+    double i = 3.16;
+	cout << i << endl;
+	double o = 3.18;
+	cout << o << endl;
+	double p = 3.16;
+	cout << p << endl;
+	double z = 3.19;
+	cout << z << endl;
+
+	bool qwe = false;
+	cout << qwe << endl;
+	bool rty = true;
+	cout << rty << endl;
+	bool utq = false;
+	cout << utq << endl;
+	bool gbplf = true;
+	cout << gbplf << endl;
+	bool vfnm = false;
+	cout << vfnm << endl;
+
+	string text = "бе";
+	cout << text << endl;
+	string name  = "Паша";
+	cout << name << endl;
+	string asdfgh = "мяу";
+	cout << asdfgh << endl;
+	string zxc = "zxc";
+	cout << zxc << endl;
+
+	char x = '!';
+	cout << x << endl;
+	char c = '@';
+	cout << c << endl;
+	char v = '#';
+	cout << v << endl;
+	char b = '%';
+	cout << b << endl;
+	char n = '^';
+	cout << n << endl;
+
+
+	return 0;
+}
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int main (){
+	setlocale(0, "");
+	int season;
+	cout << "Программа \"Времена года\"" << endl;
+	cout << "[1] Лето" << endl;
+	cout << "[2] Осень" << endl;
+	cout << "[3] Зима" << endl;
+	cout << "[4] Весна" << endl;
+	cin >> season;
+
+	if (season == 1){
+		cout << "Сейчвс лето, можно одеться легко" << endl;
+	}
+if (season == 2){
+		cout << "Сейчвс осень, следует одется тепло и взять зонт" << endl;
+	}  
+if (season == 3) {
+	cout << "Сейчас зима, следует одеться тепло" << endl;
+}
+if (season == 4) {
+	cout << "Сейчвс весна, можно одеться легко" << endl;
+}
+return 0;
+}
+
+
