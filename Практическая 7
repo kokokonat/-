@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+int main() {
+ setlocale(0, "");
+ short m,n;
+ cout << "Введите номер месяца: " << endl;
+ cin >> m;
+ cout << "Введите номер дня: " << endl;
+ cin >> n;
+ switch (m) {
+ case 1: if (n <= 31) {
+  cout << "Январь " << n; break;
+ }
+    else cout <<  "Введено неправильное число"; break; 
+ case 2: if (n <= 28) {
+  cout << "Февраль " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 3: if (n <= 31) {
+    cout << "Март " << n; break;
+ }
+    else cout<< "Введено неправильное число"; break;
+ case 4:  if (n <= 30) {
+  cout << "Апрель " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 5: if (n <= 31) {
+  cout << "май " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 6: if (n <= 30) {
+  cout << "июнь " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 7: if (n <= 31) {
+  cout << "июль " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 8: if (n <= 31) {
+  cout << "август " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 9: if (n <= 30) {
+  cout << "сентябрь " << n; break;
+ }
+    else cout << "Введено неправильное число"; break;
+ case 10: if (n <= 31) {
+  cout << "октябрь " << n; break;
+ }
+     else cout << "Введено неправильное число"; break;
+ case 11: if (n <= 30) {
+  cout << "ноябрь " << n; break;
+ }
+     else cout << "Введено неправильное число"; break;
+ case 12: if (n <= 31) {
+  cout << "декабрь " << n; break;
+ }
+     else cout << "Введено неправильное число"; break;
+ default: cout << "месяцев всего 12, подумай еще"; break;
+ }
+}
