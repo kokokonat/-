@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main() {
+ setlocale(0, "");
+ string g;
+ string x;
+  cout << "Введите новый пароль" << endl;
+  cin >> g;
+  system("cls");
+  while (true) {
+  cout << "Введите пароль:";
+  cin >> x;
+  if (g == x) {
+   cout << "Добро пожаловать!" << endl;
+  }
+  else {
+   cout << "Неверный пароль!" << endl;
+  }
+ } 7w
