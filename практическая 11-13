@@ -49,7 +49,7 @@ int main() {
    
    for (int y = 0; y < lenght; y++) {
     for (int x = 0; x < lenght; x++) {
-     if (y == 0 ⠺⠞⠞⠞⠵⠞⠞⠞⠟⠵⠞⠺⠞⠞ x==0 ||x==lenght-1) {
+     if (y == 0 || y=lenght -1 || x==0 || x==lenght-1) {
       cout << tex << " ";
      }
      else cout << "  ";
