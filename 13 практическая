@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+int main() {
+ setlocale(0, "");
+ short geom;
+ short lenght,l,l1;
+ char tex;
+ cout << "Геометрические фигуры" << endl << "1-линия" << endl << "2-квадрат"<< endl;
+ cin >> geom;
+ switch (geom) {
+ case 1: system("cls");
+  cout << "Линия" << endl << "1-горизонтальная" << endl << "2-вертикальная"<<endl;
+  short l;
+  cin >> l;
+  switch (l) {
+
+  case 1: cout << "выберите текстуру: ";
+   cin >> tex;
+   cout << "Введите длинну линии: ";
+   cin >> lenght;
+   do {
+    cout << tex;
+    lenght--;
+   } while (lenght != 0);
+   break;
+
+  case 2: cout << "выберите текстуру: ";
+   cin >> tex;
+   cout << "Введите длинну линии: ";
+   cin >> lenght;
+   do {
+    cout << tex<<endl;
+    lenght--;
+   } while (lenght != 0);
+   break;
+  }
+  break;
+
+ case 2: system("cls");
+  cout << "Квадрат" << endl << "1- Не закрашенный" << endl << "2- Закрашенный" << endl;
+  cin >> l;
+  switch (l) {
+
+  case 1:
+   cout << "выберите текстуру: ";
+   cin >> tex;
+   cout << "Введите длинну стороны квадрата: ";
+   cin >> lenght;
+   
+   for (int y = 0; y < lenght; y++) {
+    for (int x = 0; x < lenght; x++) {
+     if (y == 0 ⠺⠞⠞⠞⠵⠞⠞⠞⠟⠵⠞⠺⠞⠞ x==0 ||x==lenght-1) {
+      cout << tex << " ";
+     }
+     else cout << "  ";
+    } cout << endl;
+   } break;
+
+  case 2:  cout << "выберите текстуру: ";
+   cin >> tex;
+   cout << "Введите длинну линии: ";
+   cin >> lenght;
+   for (int y = 0; y < lenght; y++) {
+    for (int x = 0; x < lenght; x++) {
+     cout << tex << " ";
+    } cout << endl;
+   } break;
+   break;
+  }
+  break;
+ }
+}
