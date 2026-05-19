@@ -1,0 +1,158 @@
+#include <iostream>
+#include <conio.h>  // для _getch()
+#include <windows.h> // для system("cls")
+
+using namespace std;
+
+const int WIDTH = 10;
+const int HEIGHT = 10;
+
+// Символы для отображения
+const char WATER = '~';
+const char LAND = '.';
+const char WALL = '#';
+const char PLAYER = '@';
+
+// Карта
+int map[HEIGHT][WIDTH] = {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+    {1, 0, 1, 0, 2, 0, 1, 1, 0, 1},
+    {1, 0, 1, 0, 2, 0, 1, 0, 0, 1},
+    {1, 0, 0, 0, 2, 0, 0, 0, 2, 1},
+    {1, 2, 0, 2, 2, 1, 0, 1, 2, 1},
+    {1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+    {1, 0, 1, 1, 1, 1, 0, 1, 0, 1},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+};
+// 0 - земля, 1 - стена, 2 - вода
+
+int playerX = 1;
+int playerY = 1;
+bool isDead = false; // Флаг смерти игрока
+
+// Функция для отрисовки карты
+void drawMap() {
+    system("cls"); // Очистка консоли (Windows)
+
+    cout << "@ - игрок, # - стена, ~ - вода, . - земля\n";
+    cout << "Управление: W/A/S/D или стрелки, Q - выход\n\n";
+
+    for (int y = 0; y < HEIGHT; y++) {
+        for (int x = 0; x < WIDTH; x++) {
+            if (x == playerX && y == playerY && !isDead) {
+                cout << PLAYER << ' ';
+            }
+            else {
+                switch (map[y][x]) {
+                case 0: cout << "\033[0m" << LAND << ' '; break;
+                case 1: cout << "\033[33m" << WALL << ' ' << "\033[0m"; break;
+                case 2: cout << "\033[34m" << WATER << ' ' << "\033[0m"; break;
+                }
+            }
+        }
+        cout << endl;
+    } //
+    // Показываем сообщение о смерти, если игрок умер
+    if (isDead) {
+        cout << "\n\033[31m========== YOU DIED ==========\033[0m\n";
+        cout << "Нажми Q для выхода\n";
+    }
+}
+
+// Проверка возможности перемещения
+bool canMove(int newX, int newY) {
+    // Проверка границ карты
+    if (newX < 0 || newX >= WIDTH || newY < 0 || newY >= HEIGHT) {
+        return false;
+    }
+
+    // Нельзя проходить сквозь стены
+    if (map[newY][newX] == 1) {
+        return false;
+    }
+
+    return true;
+}
+
+// Функция перемещения игрока
+void movePlayer(int newX, int newY) {
+    if (!isDead && canMove(newX, newY)) {
+        playerX = newX;
+        playerY = newY;
+
+        // Проверяем, не наступил ли игрок на воду
+        if (map[playerY][playerX] == 2) {
+            isDead = true;
+        }
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    char input;
+    bool running = true;
+
+    cout << "Нажми любую клавишу\n";
+    _getch();
+
+    while (running) {
+        drawMap();
+
+        input = _getch();
+
+        // Если игрок мёртв, разрешаем только выход
+        if (isDead) {
+            input = tolower(input);
+            if (input == 'q') {
+                running = false;
+            }
+            continue;
+        }
+
+        // Обработка стрелок (они дают два кода)
+        if (input == -32) {
+            input = _getch();
+            switch (input) {
+            case 72: // Вверх
+                movePlayer(playerX, playerY - 1);
+                break;
+            case 80: // Вниз
+                movePlayer(playerX, playerY + 1);
+                break;
+            case 75: // Влево
+                movePlayer(playerX - 1, playerY);
+                break;
+            case 77: // Вправо
+                movePlayer(playerX + 1, playerY);
+                break;
+            }
+        }
+        else {
+            // Обработка буквенных клавиш
+            input = tolower(input);
+            switch (input) {
+            case 'w': // Вверх
+                movePlayer(playerX, playerY - 1);
+                break;
+            case 's': // Вниз
+                movePlayer(playerX, playerY + 1);
+                break;
+            case 'a': // Влево
+                movePlayer(playerX - 1, playerY);
+                break;
+            case 'd': // Вправо
+                movePlayer(playerX + 1, playerY);
+                break;
+            case 'q': // Выход
+                running = false;
+                break;
+            }
+        }
+    }
+
+    cout << "\nИгра завершена!\n";
+    return 0;
+}
